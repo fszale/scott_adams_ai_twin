@@ -77,6 +77,14 @@ if st.query_params.get("path", "") == "health":
 
 st.title("Coffee With Scott Adams' AI Twin")
 
+# Embed Scott Adams video avatar
+st.markdown("""
+<video width="320" height="240" autoplay loop muted playsinline>
+  <source src="scott_video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+""", unsafe_allow_html=True)
+
 # UI introduction
 st.markdown("---")
 st.markdown("""
