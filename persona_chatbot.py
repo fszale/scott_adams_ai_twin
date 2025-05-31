@@ -115,7 +115,6 @@ st.markdown("""
         position: sticky;
         bottom: 0;
         z-index: 2; /* Above content and background */
-        background: rgba(255, 255, 255, 1); /* Solid background for input */
         padding: 10px;
     }
 </style>
