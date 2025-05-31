@@ -75,15 +75,26 @@ if st.query_params.get("path", "") == "health":
     st.write({"status": "healthy", "message": "App is running"})
     st.stop()
 
-st.title("Coffee With Scott Adams' AI Twin")
-
-# Embed Scott Adams video avatar
+# Add custom CSS for background image
 st.markdown("""
-<video width="320" height="240" autoplay loop muted playsinline>
-  <source src="https://github.com/fszale/scott_adams_ai_twin/blob/main/scott_video.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+<style>
+    .stApp {
+        background-image: url("scott_adams.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        opacity: 0.15;
+    }
+    .stApp > div {
+        background: rgba(255, 255, 255, 0.9); /* Optional: semi-transparent white overlay for content readability */
+        padding: 20px;
+        border-radius: 10px;
+    }
+</style>
 """, unsafe_allow_html=True)
+
+st.title("Coffee With Scott Adams' AI Twin")
 
 # UI introduction
 st.markdown("---")
