@@ -83,17 +83,18 @@ st.markdown("""
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed;
-        /* Ensure the app container itself remains fully opaque */
-        opacity: 1;
+        min-height: 100vh; /* Ensure app takes at least full viewport height */
+        overflow-y: auto; /* Explicitly allow vertical scrolling */
+        opacity: 1; /* Keep app container fully opaque */
+        position: relative; /* Positioning context for pseudo-element */
     }
     .stApp::before {
         content: "";
-        position: absolute;
+        position: fixed; /* Use fixed to cover viewport without affecting scroll */
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 100vh; /* Cover full viewport height */
         background-image: inherit;
         background-size: inherit;
         background-position: inherit;
@@ -102,11 +103,21 @@ st.markdown("""
         z-index: -1; /* Place behind all content */
     }
     .stApp > div {
-        
+        background: rgba(255, 255, 255, 0.95); /* Semi-transparent white overlay for readability */
         padding: 20px;
         border-radius: 10px;
-        position: relative; /* Ensure content stays above the background */
-        z-index: 1; /* Place content above the pseudo-element */
+        position: relative; /* Ensure content stays above background */
+        z-index: 1; /* Place content above pseudo-element */
+        min-height: 100%; /* Allow content to expand */
+        box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    }
+    /* Ensure chat input stays at the bottom and is visible */
+    .stChatInput {
+        position: sticky;
+        bottom: 0;
+        z-index: 2; /* Above content and background */
+        background: rgba(255, 255, 255, 1); /* Solid background for input */
+        padding: 10px;
     }
 </style>
 """, unsafe_allow_html=True)
