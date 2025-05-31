@@ -103,7 +103,6 @@ st.markdown("""
         z-index: -1; /* Place behind all content */
     }
     .stApp > div {
-        background: rgba(255, 255, 255, 0.95); /* Semi-transparent white overlay for readability */
         padding: 20px;
         border-radius: 10px;
         position: relative; /* Ensure content stays above background */
