@@ -79,17 +79,34 @@ if st.query_params.get("path", "") == "health":
 st.markdown("""
 <style>
     .stApp {
-        background-image: url("scott_adams.png");
+        background-image: url("https://raw.githubusercontent.com/fszale/scott_adams_ai_twin/main/scott_adams.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        opacity: 0.15;
+        /* Ensure the app container itself remains fully opaque */
+        opacity: 1;
+    }
+    .stApp::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: inherit;
+        background-size: inherit;
+        background-position: inherit;
+        background-repeat: inherit;
+        opacity: 0.05; /* Very low opacity for barely visible background */
+        z-index: -1; /* Place behind all content */
     }
     .stApp > div {
-        background: rgba(255, 255, 255, 0.9); /* Optional: semi-transparent white overlay for content readability */
+        background: rgba(255, 255, 255, 0.95); /* Slightly opaque white overlay for content readability */
         padding: 20px;
         border-radius: 10px;
+        position: relative; /* Ensure content stays above the background */
+        z-index: 1; /* Place content above the pseudo-element */
     }
 </style>
 """, unsafe_allow_html=True)
