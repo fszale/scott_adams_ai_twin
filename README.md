@@ -9,4 +9,4 @@ Thank you for your contribution to the consciousness.
 
 Godspeed Scott Adams!
 
-Runnable on (https://scott-adams-ai-twin.streamlit.app/)[https://scott-adams-ai-twin.streamlit.app/]
+Runnable on [https://scott-adams-ai-twin.streamlit.app/](https://scott-adams-ai-twin.streamlit.app/)
